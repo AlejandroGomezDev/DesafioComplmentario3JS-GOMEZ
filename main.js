@@ -61,7 +61,7 @@ function marcador(){
 }
 
 //llamado de la funcion.
-preguntaHecha()
+// preguntaHecha()
 
 
 //la verdad no sabia como implementar todavia un metodo, pero como mas adelante el usuario va a poder elegir tambie el tipo de preguntas que quiera, por eso le agregue el parametro tipo
@@ -69,3 +69,26 @@ preguntaHecha()
 
 const resultado = cuestionario.filter((el) => el.tipo == 'Deportes')
 console.log(resultado);
+
+//Plantilla
+
+let divPreguntas = document.getElementById("preguntas")
+cuestionario.forEach((preguntaFormulada)=>{
+    let nuevaPregunta = document.createElement("div")
+    nuevaPregunta.innerHTML = `<article>
+                            <div class="container">
+                                <section id="pregunta">
+                                <h3>${preguntaFormulada.pregunta}</h3>
+                                <label>
+                                    <input type="radio" value="1" name="pregunta">${preguntaFormulada.opcion1}
+                                    <input type="radio" value="2" name="pregunta">${preguntaFormulada.opcion2}
+                                    <input type="radio" value="3" name="pregunta">${preguntaFormulada.opcion3}
+                                    <input type="radio" value="4" name="pregunta">${preguntaFormulada.opcion4}
+                                </label>
+                                </section>
+                            </div>
+                            </article>`
+    divPreguntas.appendChild(nuevaPregunta) 
+})
+                          
+
